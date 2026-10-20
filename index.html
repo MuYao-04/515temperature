@@ -189,7 +189,11 @@
       },true);
     }
     async function loadData() {
-      const response = await fetch(`temperature_data.json?v=${Date.now()}`, {cache:'no-store'});
+      //const response = await fetch(`temperature_data.json?v=${Date.now()}`, {cache:'no-store'});
+      const response = await fetch(
+  `https://raw.githubusercontent.com/gzt2003/document-temperature/main/temperature_data.json?v=${Date.now()}`,
+  { cache: 'no-store' }
+);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       payload = await response.json();
       render();
